@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from openai import OpenAI
 
 app = Flask(__name__)
-client = OpenAI()  # Reads OPENAI_API_KEY automatically
+client = OpenAI(No need to pass api_key=; OpenAI(OPENAI_API_KEY)
 
 @app.route("/")
 def home():
@@ -19,3 +19,4 @@ def chat():
 
 if __name__ == "__main__":
     app.run()
+

@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KANHA'S AI </title>
-  <link rel="stylesheet" href="style.css">
+  <title>KANHA'S AI EVERYWHERE</title>
+
+  <!-- LINK CSS FROM STATIC -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
   <div class="chat-container">
 
     <div class="header">
-      🤖 KANHA'S AI 
+      🤖 KANHA'S AI EVERYWHERE
     </div>
 
     <div id="chat-box"></div>
@@ -23,6 +25,7 @@
 
   </div>
 
-  <script src="script.js"></script>
+  <!-- LINK JS FROM STATIC -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

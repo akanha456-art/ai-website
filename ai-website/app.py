@@ -4,7 +4,7 @@ from openai import OpenAI
 
 app = Flask(__name__)
 
-client = OpenAI(api_key=os.getenv("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"))
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 @app.route("/")
 def home():
@@ -24,5 +24,6 @@ def chat():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
 
 

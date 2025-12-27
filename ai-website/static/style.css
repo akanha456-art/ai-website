@@ -1,34 +1,122 @@
+/* General body and container styling */
+/* General body and container styling */
 body {
-    background: #0f172a;
-    color: white;
-    font-family: Arial;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; /* Dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.chatbox {
-    width: 400px;
-    margin: 50px auto;
-    background: #1e293b;
+.chat-container {
+    background-color: #1e1e1e; /* Dark luxury box */
+    border: 2px solid gold; /* Luxury gold border */
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* soft gold glow */
+}
+
+/* Header */
+.chat-container h1 {
+    margin: 0;
+    padding: 15px;
+    font-size: 1.5rem;
+    color: gold;
+    text-align: center;
+    border-bottom: 1px solid gold;
+}
+
+/* Chat messages area */
+.chat-box {
+    flex: 1;
     padding: 20px;
+    overflow-y: auto;
+    background-color: #0d0d0d; /* inner bot area dark */
+    color: #fff;
+    font-size: 1rem;
+}
+
+/* Messages style */
+.chat-box p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.chat-box p.user {
+    text-align: right;
+    color: #00bfff;
+}
+
+.chat-box p.bot {
+    text-align: left;
+    color: #ffd700;
+}
+
+/* Input area */
+.input-area {
+    display: flex;
+    padding: 15px;
+    background-color: #1a1a1a;
+    border-top: 1px solid gold;
+}
+
+.input-area input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid gold;
+    background-color: #121212;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+}
+
+.input-area button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: gold;
+    color: #121212;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.input-area button:hover {
+    background-color: #ffd700;
+}
+
+/* Scrollbar style */
+.chat-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background-color: gold;
     border-radius: 10px;
 }
 
-#chat {
-    height: 300px;
-    overflow-y: auto;
-    background: #020617;
-    padding: 10px;
-    margin-bottom: 10px;
-}
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .chat-container {
+        width: 95%;
+        height: 90vh;
+    }
 
-input {
-    width: 75%;
-    padding: 8px;
-}
+    .chat-container h1 {
+        font-size: 1.3rem;
+    }
 
-button {
-    width: 20%;
-    padding: 8px;
-    background: #38bdf8;
-    border: none;
-    cursor: pointer;
+    .input-area input, .input-area button {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
 }

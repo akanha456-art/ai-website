@@ -1,79 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>KANHA CHATBOT</title>
-    <link rel="stylesheet" href="/static/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KANHA'S AI </title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="chatbox">
-    <h2>🤖 KANHA Chatbot</h2>
-    <div id="chat"></div>
+  <div class="chat-container">
 
-    <input type="text" id="msg" placeholder="Type a message...">
-    <button onclick="send()">Send</button>
-</div>
+    <div class="header">
+      🤖 KANHA'S AI 
+    </div>
 
-<script>
-function send() {
-    let msg = document.getElementById("msg").value;
-    document.getElementById("chat").innerHTML += "<p><b>You:</b> " + msg + "</p>";
+    <div id="chat-box"></div>
 
-    fetch("/chat", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({message: msg})
-    })
-    .then(res => res.json())
-    .then(data => {
-        document.getElementById("chat").innerHTML += "<p><b>Bot:</b> " + data.reply + "</p>";
-    });
+    <div class="input-area">
+      <input type="text" id="user-input" placeholder="Ask me anything...">
+      <button onclick="sendMessage()">➤</button>
+    </div>
 
-    document.getElementById("msg").value = "";
-}
-</script>
+  </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
-<div class="chat-container">
-    <h1>🤖 AI Chatbot</h1>
-    <div class="chat-box" id="chat-box"></div>
-    <div class="input-area">
-        <input type="text" id="user-input" placeholder="Type a message..." />
-        <button id="send-btn">Send</button>
-    </div>
-</div>
-
-<script>
-const input = document.getElementById("user-input");
-const sendBtn = document.getElementById("send-btn");
-const chatBox = document.getElementById("chat-box");
-
-function appendMessage(sender, message) {
-    const p = document.createElement("p");
-    p.className = sender;
-    p.textContent = message;
-    chatBox.appendChild(p);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-sendBtn.addEventListener("click", () => {
-    if(input.value.trim() !== "") {
-        appendMessage("user", input.value);
-        // Simulate bot response
-        appendMessage("bot", "Typing...");
-        setTimeout(() => {
-            appendMessage("bot", "Hey! How can I help you today?");
-        }, 500);
-        input.value = "";
-    }
-});
-
-// Press Enter to send message
-input.addEventListener("keydown", function(e) {
-    if(e.key === "Enter") {
-        sendBtn.click();
-    }
-});
-</script>
-

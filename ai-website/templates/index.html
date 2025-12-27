@@ -1,37 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>AI Chatbot</title>
-    <link rel="stylesheet" href="/static/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Website</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 font-sans">
 
-<div class="chatbox">
-    <h2>🤖 AI Chatbot</h2>
-    <div id="chat"></div>
+  <!-- Header -->
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <div class="text-2xl font-bold text-blue-600">AI Hub</div>
+      <nav class="space-x-6">
+        <a href="#" class="hover:text-blue-600">Home</a>
+        <a href="#features" class="hover:text-blue-600">Features</a>
+        <a href="#pricing" class="hover:text-blue-600">Pricing</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Sign Up</a>
+      </nav>
+    </div>
+  </header>
 
-    <input type="text" id="msg" placeholder="Type a message...">
-    <button onclick="send()">Send</button>
-</div>
+  <!-- Hero Section -->
+  <section class="bg-gray-50 py-20">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">AI Tools for Everyone</h1>
+      <p class="text-gray-600 mb-6 text-lg md:text-xl">Generate text, images, and more with our advanced AI solutions.</p>
+      <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700">Get Started</a>
+    </div>
+  </section>
 
-<script>
-function send() {
-    let msg = document.getElementById("msg").value;
-    document.getElementById("chat").innerHTML += "<p><b>You:</b> " + msg + "</p>";
+  <!-- Features Section -->
+  <section id="features" class="py-20">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-12">Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <div class="text-blue-600 text-4xl mb-4">💬</div>
+          <h3 class="font-bold text-xl mb-2">AI Chatbot</h3>
+          <p class="text-gray-600">Interact with a smart chatbot that understands your needs and responds instantly.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <div class="text-blue-600 text-4xl mb-4">🖼️</div>
+          <h3 class="font-bold text-xl mb-2">Image Generation</h3>
+          <p class="text-gray-600">Create stunning AI-generated images with just a few prompts.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <div class="text-blue-600 text-4xl mb-4">📊</div>
+          <h3 class="font-bold text-xl mb-2">Analytics</h3>
+          <p class="text-gray-600">AI-driven insights and analytics to improve decision-making and productivity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    fetch("/chat", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({message: msg})
-    })
-    .then(res => res.json())
-    .then(data => {
-        document.getElementById("chat").innerHTML += "<p><b>Bot:</b> " + data.reply + "</p>";
-    });
+  <!-- AI Interaction Section -->
+  <section class="bg-gray-100 py-20">
+    <div class="container mx-auto max-w-xl text-center">
+      <h2 class="text-3xl font-bold mb-6">Try AI Now</h2>
+      <p class="text-gray-600 mb-6">Type something and see our AI in action!</p>
+      <form class="flex flex-col md:flex-row gap-4">
+        <input type="text" placeholder="Ask AI..." class="p-3 flex-1 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600">
+        <button class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700">Submit</button>
+      </form>
+    </div>
+  </section>
 
-    document.getElementById("msg").value = "";
-}
-</script>
+  <!-- Footer -->
+  <footer class="bg-white shadow-inner py-8 mt-12">
+    <div class="container mx-auto text-center text-gray-500">
+      &copy; 2025 AI Hub. All rights reserved.
+    </div>
+  </footer>
 
 </body>
 </html>
